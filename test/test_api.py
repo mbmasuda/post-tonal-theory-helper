@@ -4,6 +4,7 @@ Pytest tests for the src/ptth/api.py file
 import pytest
 
 from src.ptth.api import (
+    get_forte_name,
     get_intervals,
     get_most_packed_to_the_left,
     get_set_class_members,
@@ -20,6 +21,7 @@ from src.ptth.api import (
     _tuple_to_string
 )
 from test.data_api import (
+    test_get_forte_name,
     test_get_intervals,
     test_get_most_packed_to_the_left,
     test_get_set_class_members,
@@ -161,3 +163,9 @@ class TestTheApi(object):
                              test_prime_form)
     def test_prime_form(self, pitches, expected):
         assert prime_form(pitches) == expected
+
+
+    @pytest.mark.parametrize("pitches, expected",
+                             test_get_forte_name)
+    def test_get_forte_name(self, pitches, expected):
+        assert get_forte_name(pitches) == expected

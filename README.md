@@ -28,12 +28,18 @@ prime = prime_form(pitches)
 normal_t4 = transpose(normal, 4)
 normal_t4i = invert(normal, transpose=4)
 
-boolean1 = is_transpositionally_related(normal, prime)
-boolean2 = is_inversionally_related(normal, prime)
+boolean1 = is_transpositionally_related(normal, normal_t4)
+boolean2 = is_inversionally_related(normal, normal_t4i)
 
 members = get_set_class_members(normal)
+
+forte_name = get_forte_name(pitches)
 ```
 
 ## Tests
 
 Tests can be run with pytest
+
+```bash
+$ py.test
+```

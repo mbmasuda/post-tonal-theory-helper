@@ -30,6 +30,8 @@ as a tuple, such as (11, 2, 8, 5, 10), or a string, with "t" for
 """
 import functools
 
+from .forte_names import FORTE_NAMES
+
 
 def normalize(pitch_class_string, de_dup=True, sort=True):
     """
@@ -410,3 +412,18 @@ def get_set_class_members(pitches):
         output.append(rotate_pitches(inverted, i))
 
     return output
+
+
+def get_forte_name(pitches):
+    """
+    Returns the Forte name of the pitch class set
+
+    Params:
+        * pitches (tuple or string): the pitches
+    """
+    prime = prime_form(pitches)
+    pitch_string = _tuple_to_string(prime)
+    pitch_string = pitch_string.upper()
+    return FORTE_NAMES.get(pitch_string,
+                           'An error occurred and the Forte name '
+                           'for {} could not be found'.format(pitch_string))
