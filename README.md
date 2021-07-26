@@ -43,3 +43,13 @@ Tests can be run with pytest
 ```bash
 $ py.test
 ```
+
+## TODO
+
+1.  **Clean up the code**
+
+    I threw this package together pretty quickly because the point of this
+    project was to learn how to publish something to PyPI. Although the
+    code works fine and there are tests, I need to fix some stuff up because
+    some of the docstrings are out of sync with the code and also I noticed
+    a few PEP-8 issues as well
